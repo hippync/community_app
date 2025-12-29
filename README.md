@@ -84,12 +84,12 @@ Le projet est en phase de développement initial. Les contributions sont les bie
 - Tests et rapport de bugs
 
 **Rejoignez-nous :**
-- 💬 [Discussions](https://github.com/VOTRE_USERNAME/community_app/discussions) - Présentez-vous et partagez vos idées
-- 🐛 [Issues](https://github.com/VOTRE_USERNAME/community_app/issues) - Signalez des bugs ou proposez des améliorations
-- 📖 [Guide de contribution](https://github.com/VOTRE_USERNAME/community_app/blob/main/.github/CONTRIBUTING.md) - Comment contribuer au code
+- 💬 [Discussions](https://github.com/hippync/community_app/discussions) - Présentez-vous et partagez vos idées
+- 🐛 [Issues](https://github.com/hippync/community_app/issues) - Signalez des bugs ou proposez des améliorations
+- 📖 [Guide de contribution](https://github.com/hippync/community_app/blob/main/.github/CONTRIBUTING.md) - Comment contribuer au code
 
 **Besoin d'aide pour démarrer ?**
-Consultez les issues taggués [`good first issue`](https://github.com/VOTRE_USERNAME/community_app/labels/good%20first%20issue) !
+Consultez les issues taggués [`good first issue`](https://github.com/hippync/community_app/labels/good%20first%20issue) !
 
 ## 📬 Contact
 
