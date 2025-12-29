@@ -62,9 +62,9 @@ Le dossier `/plan` contient la vision complète du projet et la progression imag
 **Objectifs 6 mois :**
 - ✅ Site web promotionnel
 - 🔄 Maquette Figma cliquable (en cours)
-- 🎯 10 organismes partenaires
-- 🎯 20 commerces locaux
-- 🎯 150 bénévoles en liste d'attente
+- 🎯 5 organismes partenaires
+- 🎯 10 commerces locaux
+- 🎯 50 bénévoles en liste d'attente
 - 🎯 Lancement pilote à Montréal
 
 ## 🔐 Sécurité & Confiance
