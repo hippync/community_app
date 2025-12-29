@@ -4,6 +4,7 @@ import Accueil from './pages/Accueil';
 import Fonctionnement from './pages/Fonctionnement';
 import Communaute from './pages/Communaute';
 import Rejoindre from './pages/Rejoindre';
+import Securite from './pages/Securite';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('accueil');
@@ -17,9 +18,11 @@ function App() {
       case 'accueil':
         return <Accueil onNavigate={setCurrentPage} />;
       case 'fonctionnement':
-        return <Fonctionnement />;
+        return <Fonctionnement onNavigate={setCurrentPage} />;
       case 'communaute':
         return <Communaute onNavigate={setCurrentPage} />;
+      case 'securite':
+        return <Securite onNavigate={setCurrentPage} />;
       case 'rejoindre':
         return <Rejoindre />;
       default:

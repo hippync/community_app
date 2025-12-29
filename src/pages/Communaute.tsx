@@ -31,29 +31,29 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
     {
       icon: Clock,
       value: '10,000+',
-      label: "Heures d'entraide",
-      description: 'Notre vision pour la première année',
+      label: "Heures de bénévolat",
+      description: 'Objectif de la première année à Montréal',
       color: 'bg-gradient-to-br from-[#60a5fa] to-[#3b82f6]',
     },
     {
       icon: MapPin,
-      value: '50+',
-      label: 'Initiatives locales',
-      description: 'Actions concrètes dans nos communautés',
+      value: '10+',
+      label: 'OBNL partenaires',
+      description: 'Organismes vérifiés pour le pilote',
       color: 'bg-gradient-to-br from-[#34d399] to-[#10b981]',
     },
     {
       icon: Heart,
-      value: '100+',
-      label: 'Causes soutenues',
-      description: 'Impact diversifié et significatif',
+      value: '20+',
+      label: 'Commerces locaux',
+      description: 'Partenaires offrant des récompenses',
       color: 'bg-gradient-to-br from-[#1e40af] to-[#1e3a8a]',
     },
     {
       icon: Users,
-      value: '5,000+',
-      label: 'Membres engagés',
-      description: 'Une communauté en croissance',
+      value: '150+',
+      label: 'Bénévoles actifs',
+      description: 'Objectif pour lancer le pilote',
       color: 'bg-gradient-to-br from-[#10b981] to-[#059669]',
     },
   ];
@@ -67,7 +67,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             Notre communauté
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-6">
-            Découvrez la vision collective qui anime Covalto et l'impact que nous aspirons à créer ensemble.
+            Découvrez l'écosystème tripartite qui unit bénévoles, OBNL et commerces locaux autour d'un système de récompenses basé sur l'entraide.
           </p>
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
@@ -109,7 +109,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             Impact projeté
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Voici notre vision de l'impact que Covalto pourra générer une fois la plateforme pleinement opérationnelle.
+            Nos objectifs pour le pilote montréalais : 10 OBNL, 20 commerces et 150 bénévoles actifs.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {projectedImpact.map((item, index) => {
@@ -132,7 +132,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             })}
           </div>
           <p className="text-center text-sm text-gray-600 mt-8 italic">
-            Ces chiffres représentent nos objectifs futurs et notre vision collective.
+            Ces chiffres représentent nos objectifs pour le lancement du pilote à Montréal en 2025.
           </p>
         </div>
 

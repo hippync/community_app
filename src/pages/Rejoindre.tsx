@@ -6,6 +6,8 @@ export default function Rejoindre() {
   const [formData, setFormData] = useState({
     firstName: '',
     email: '',
+    role: '',
+    quartier: '',
     motivation: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,7 +16,7 @@ export default function Rejoindre() {
     e.preventDefault();
     setIsSubmitted(true);
     setTimeout(() => {
-      setFormData({ firstName: '', email: '', motivation: '' });
+      setFormData({ firstName: '', email: '', role: '', quartier: '', motivation: '' });
     }, 3000);
   };
 
@@ -55,11 +57,11 @@ export default function Rejoindre() {
             Rejoindre Covalto
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
-            Manifestez votre intérêt pour faire partie de cette initiative communautaire et contribuer à créer un impact collectif.
+            Que vous soyez citoyen engagé, organisme ou commerce local, rejoignez notre mouvement pour transformer l'entraide en impact concret.
           </p>
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
-              <span className="font-bold">Phase de prototype :</span> Covalto est en cours de développement. Les personnes inscrites seront contactées lors des prochaines étapes.
+              <span className="font-bold">Phase pilote à Montréal :</span> Covalto est en développement. Nous recherchons 10 OBNL, 20 commerces et 150 bénévoles pour lancer le projet en 2025.
             </p>
           </div>
         </div>
@@ -96,6 +98,40 @@ export default function Rejoindre() {
                 required
                 className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#1e40af] focus:ring-4 focus:ring-blue-50 outline-none transition-all text-gray-900 placeholder-gray-400"
                 placeholder="votre@courriel.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="role" className="block text-sm font-semibold text-gray-900 mb-3">
+                Je suis...
+              </label>
+              <select
+                id="role"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#1e40af] focus:ring-4 focus:ring-blue-50 outline-none transition-all text-gray-900 bg-white"
+              >
+                <option value="">Sélectionnez votre rôle</option>
+                <option value="volunteer">Citoyen engagé (étudiant, travailleur, parent, retraité)</option>
+                <option value="nonprofit">OBNL / Organisme communautaire</option>
+                <option value="business">Commerce local / Entreprise</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="quartier" className="block text-sm font-semibold text-gray-900 mb-3">
+                Quartier (Montréal) <span className="text-gray-400 text-xs">optionnel</span>
+              </label>
+              <input
+                type="text"
+                id="quartier"
+                name="quartier"
+                value={formData.quartier}
+                onChange={handleChange}
+                className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#1e40af] focus:ring-4 focus:ring-blue-50 outline-none transition-all text-gray-900 placeholder-gray-400"
+                placeholder="Ex: Plateau, Rosemont, Villeray, Hochelaga..."
               />
             </div>
 

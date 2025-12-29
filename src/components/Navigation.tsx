@@ -13,6 +13,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     { id: 'accueil', label: 'Accueil' },
     { id: 'fonctionnement', label: 'Comment ça fonctionne' },
     { id: 'communaute', label: 'Communauté' },
+    { id: 'securite', label: 'Sécurité' },
     { id: 'rejoindre', label: 'Rejoindre' },
   ];
 
