@@ -83,6 +83,14 @@ Le projet est en phase de développement initial. Les contributions sont les bie
 - Suggestions de partenaires potentiels
 - Tests et rapport de bugs
 
+**Rejoignez-nous :**
+- 💬 [Discussions](https://github.com/VOTRE_USERNAME/community_app/discussions) - Présentez-vous et partagez vos idées
+- 🐛 [Issues](https://github.com/VOTRE_USERNAME/community_app/issues) - Signalez des bugs ou proposez des améliorations
+- 📖 [Guide de contribution](https://github.com/VOTRE_USERNAME/community_app/blob/main/.github/CONTRIBUTING.md) - Comment contribuer au code
+
+**Besoin d'aide pour démarrer ?**
+Consultez les issues taggués [`good first issue`](https://github.com/VOTRE_USERNAME/community_app/labels/good%20first%20issue) !
+
 ## 📬 Contact
 
 Pour manifester votre intérêt ou proposer un partenariat, visitez le site web et remplissez le formulaire de contact.
@@ -90,3 +98,7 @@ Pour manifester votre intérêt ou proposer un partenariat, visitez le site web 
 ---
 
 **Note :** Covalto est actuellement en phase de prototype. Ce projet vise à créer un impact social positif en valorisant l'entraide locale et en bâtissant une économie de la confiance au Québec.
+
+---
+
+**Construit avec ❤️ par la communauté québécoise**
