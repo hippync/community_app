@@ -21,27 +21,6 @@ Un site web vitrine est disponible pour promouvoir le projet et collecter les ma
 - Tailwind CSS
 - Lucide Icons
 
-### Installation
-
-```bash
-npm install
-```
-
-### Développement
-
-```bash
-npm run dev
-```
-
-Le site sera accessible sur `http://localhost:5173`
-
-### Build pour production
-
-```bash
-npm run build
-npm run preview
-```
-
 ## 📋 Planification du Projet
 
 Le dossier `/plan` contient la vision complète du projet et la progression imaginée :
