@@ -1,5 +1,5 @@
 import { Heart, Users, Sparkles, ArrowRight } from 'lucide-react';
-import { IconCard, Card } from '../components/Card';
+import { Card } from '../components/Card';
 
 interface AccueilProps {
   onNavigate: (page: string) => void;
