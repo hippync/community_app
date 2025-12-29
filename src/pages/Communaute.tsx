@@ -30,28 +30,28 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
   const projectedImpact = [
     {
       icon: Clock,
-      value: '10,000+',
+      value: '5,000+',
       label: "Heures de bénévolat",
       description: 'Objectif de la première année à Montréal',
       color: 'bg-gradient-to-br from-[#60a5fa] to-[#3b82f6]',
     },
     {
       icon: MapPin,
-      value: '10+',
+      value: '5+',
       label: 'OBNL partenaires',
       description: 'Organismes vérifiés pour le pilote',
       color: 'bg-gradient-to-br from-[#34d399] to-[#10b981]',
     },
     {
       icon: Heart,
-      value: '20+',
+      value: '10+',
       label: 'Commerces locaux',
       description: 'Partenaires offrant des récompenses',
       color: 'bg-gradient-to-br from-[#1e40af] to-[#1e3a8a]',
     },
     {
       icon: Users,
-      value: '150+',
+      value: '50+',
       label: 'Bénévoles actifs',
       description: 'Objectif pour lancer le pilote',
       color: 'bg-gradient-to-br from-[#10b981] to-[#059669]',
@@ -109,7 +109,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             Impact projeté
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Nos objectifs pour le pilote montréalais : 10 OBNL, 20 commerces et 150 bénévoles actifs.
+            Nos objectifs pour le pilote montréalais : 5 OBNL, 10 commerces et 50 bénévoles actifs.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {projectedImpact.map((item, index) => {

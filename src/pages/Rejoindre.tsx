@@ -61,7 +61,7 @@ export default function Rejoindre() {
           </p>
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
-              <span className="font-bold">Phase pilote à Montréal :</span> Covalto est en développement. Nous recherchons 10 OBNL, 20 commerces et 150 bénévoles pour lancer le projet en 2025.
+              <span className="font-bold">Phase pilote à Montréal :</span> Covalto est en développement. Nous recherchons 5 OBNL, 10 commerces et 50 bénévoles pour lancer le projet en 2026.
             </p>
           </div>
         </div>
