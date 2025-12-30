@@ -132,7 +132,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             })}
           </div>
           <p className="text-center text-sm text-gray-600 mt-8 italic">
-            Ces chiffres représentent nos objectifs pour le lancement du pilote à Montréal en 2025.
+            Ces chiffres représentent nos objectifs pour le lancement du pilote à Montréal en 2026.
           </p>
         </div>
 
