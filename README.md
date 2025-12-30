@@ -57,6 +57,11 @@ Le projet intègre dès le départ :
 ## 🤝 Contribution
 
 Le projet est en phase de développement initial. Les contributions sont les bienvenues, notamment pour :
+
+- **Dashboard admin** : Visualiser les manifestations
+- **Email de confirmation** : Notifier les utilisateurs
+- **Statistiques** : Tableau de bord avec métriques
+- **CAPTCHA** : Protection anti-bots
 - Amélioration du site web promotionnel
 - Feedback sur l'expérience utilisateur
 - Suggestions de partenaires potentiels
