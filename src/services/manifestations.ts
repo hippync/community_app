@@ -47,7 +47,8 @@ export const manifestationsService = {
     }
 
     // 3. Insérer dans Supabase (la contrainte UNIQUE gérera les doublons)
-    const { data: result, error } = await supabase
+    // Ne pas utiliser .select() car RLS bloque SELECT pour les utilisateurs anonymes
+    const { error } = await supabase
       .from('manifestations_interet')
       .insert([
         {
@@ -57,29 +58,24 @@ export const manifestationsService = {
           quartier: data.quartier?.trim() || null,
           motivation: data.motivation.trim(),
         },
-      ])
-      .select()
-      .single();
+      ]);
 
     if (error) {
+      console.error('Erreur Supabase:', error.code, error.message, error.details);
+      
       // Vérifier si c'est une erreur de contrainte unique (doublon)
       if (error.code === '23505') {
         throw new Error('EMAIL_DUPLICATE');
       }
-      
-      // Vérifier si c'est une erreur de politique RLS
-      if (error.code === '42501') {
-        throw new Error('Vous ne pouvez pas soumettre plusieurs fois avec le même email');
-      }
 
-      console.error('Erreur Supabase:', error);
-      throw error;
+      // Autres erreurs
+      throw new Error(error.message || 'Erreur lors de l\'enregistrement');
     }
 
-    // 5. Mettre à jour le tracker de soumissions
+    // 4. Mettre à jour le tracker de soumissions
     submissionTracker.set(emailKey, now);
 
-    return result;
+    return { success: true, email: emailKey };
   },
 
   /**
