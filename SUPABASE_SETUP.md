@@ -1,4 +1,4 @@
-# Configuration Supabase pour Covalto
+# Configuration Supabase pour Collaboro
 
 ## 🎯 Étapes de configuration
 
@@ -8,7 +8,7 @@
 2. Créez un compte gratuit
 3. Cliquez sur "New Project"
 4. Remplissez les informations :
-   - **Name**: Covalto
+   - **Name**: Collaboro
    - **Database Password**: (générez un mot de passe fort)
    - **Region**: Montreal (ou le plus proche)
    - **Pricing Plan**: Free

@@ -1,10 +1,10 @@
-# Covalto
+# Collaboro
 
 > Plateforme québécoise qui transforme l'entraide en récompenses locales et réputation humaine.
 
 ## 🎯 Vision
 
-Covalto connecte trois acteurs pour créer un écosystème d'entraide locale :
+Collaboro connecte trois acteurs pour créer un écosystème d'entraide locale :
 - **Citoyens engagés** (étudiants, travailleurs, parents, retraités) → donnent du temps
 - **Organismes communautaires** (OBNL) → reçoivent de l'aide
 - **Commerces locaux** → offrent des récompenses
@@ -76,7 +76,7 @@ Pour manifester votre intérêt ou proposer un partenariat, visitez le site web 
 
 ---
 
-**Note :** Covalto est actuellement en phase de prototype. Ce projet vise à créer un impact social positif en valorisant l'entraide locale et en bâtissant une économie de la confiance au Québec.
+**Note :** Collaboro est actuellement en phase de prototype. Ce projet vise à créer un impact social positif en valorisant l'entraide locale et en bâtissant une économie de la confiance au Québec.
 
 ---
 

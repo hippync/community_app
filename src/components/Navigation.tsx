@@ -1,20 +1,23 @@
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 interface NavigationProps {
   currentPage: string;
   onNavigate: (page: string) => void;
 }
 
-export default function Navigation({ currentPage, onNavigate }: NavigationProps) {
+export default function Navigation({
+  currentPage,
+  onNavigate,
+}: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'accueil', label: 'Accueil' },
-    { id: 'fonctionnement', label: 'Comment ça fonctionne' },
-    { id: 'communaute', label: 'Communauté' },
-    { id: 'securite', label: 'Sécurité' },
-    { id: 'rejoindre', label: 'Rejoindre' },
+    { id: "accueil", label: "Accueil" },
+    { id: "fonctionnement", label: "Comment ça fonctionne" },
+    { id: "communaute", label: "Communauté" },
+    { id: "securite", label: "Sécurité" },
+    { id: "rejoindre", label: "Rejoindre" },
   ];
 
   const handleNavClick = (page: string) => {
@@ -27,10 +30,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button
-            onClick={() => handleNavClick('accueil')}
+            onClick={() => handleNavClick("accueil")}
             className="text-3xl font-bold bg-gradient-to-r from-[#1e40af] to-[#60a5fa] bg-clip-text text-transparent hover:scale-105 transition-transform"
           >
-            Covalto
+            Collaboro
           </button>
 
           <div className="hidden md:flex items-center space-x-2">
@@ -40,8 +43,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 onClick={() => handleNavClick(item.id)}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   currentPage === item.id
-                    ? 'bg-[#1e40af] text-white shadow-lg shadow-blue-500/30'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? "bg-[#1e40af] text-white shadow-lg shadow-blue-500/30"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 {item.label}
@@ -71,8 +74,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 onClick={() => handleNavClick(item.id)}
                 className={`block w-full text-left px-6 py-4 rounded-2xl text-base font-semibold transition-all ${
                   currentPage === item.id
-                    ? 'bg-[#1e40af] text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? "bg-[#1e40af] text-white shadow-lg"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 {item.label}

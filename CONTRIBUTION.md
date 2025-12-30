@@ -1,10 +1,10 @@
-# Guide de contribution à Covalto
+# Guide de contribution à Collaboro
 
-Merci de votre intérêt pour contribuer à Covalto ! 🎉
+Merci de votre intérêt pour contribuer à Collaboro ! 🎉
 
 ## 🎯 Vision du projet
 
-Covalto est une plateforme québécoise en phase prototype. Nous construisons un écosystème d'entraide locale connectant citoyens, OBNL et commerces.
+Collaboro est une plateforme québécoise en phase prototype. Nous construisons un écosystème d'entraide locale connectant citoyens, OBNL et commerces.
 
 **Philosophie :** Itérations rapides, transparence, impact social.
 
@@ -201,4 +201,4 @@ Fixes #(issue)
 
 <!-- Informations complémentaires pour les reviewers -->
 
-Merci de construire Covalto avec nous ! 💪
+Merci de construire Collaboro avec nous ! 💪

@@ -144,7 +144,7 @@ export default function Rejoindre() {
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
             Votre manifestation d'intérêt a été enregistrée avec succès. Nous
             vous contacterons lors des prochaines étapes du développement de
-            Covalto.
+            Collaboro.
           </p>
           <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-6">
             <p className="text-gray-700 font-semibold text-lg">
@@ -162,7 +162,7 @@ export default function Rejoindre() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Rejoindre Covalto
+            Rejoindre Collaboro
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
             Que vous soyez citoyen engagé, organisme ou commerce local,
@@ -172,7 +172,7 @@ export default function Rejoindre() {
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
               <span className="font-bold">Phase pilote à Montréal :</span>{" "}
-              Covalto est en développement. Nous recherchons 5 OBNL, 10
+              Collaboro est en développement. Nous recherchons 5 OBNL, 10
               commerces et 50 bénévoles pour lancer le projet en 2026.
             </p>
           </div>
@@ -369,8 +369,8 @@ export default function Rejoindre() {
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-6">
             Chaque personne qui manifeste son intérêt nous aide à construire
-            Covalto. Votre participation dès maintenant contribue à façonner une
-            plateforme qui reflète les besoins et les valeurs de notre
+            Collaboro. Votre participation dès maintenant contribue à façonner
+            une plateforme qui reflète les besoins et les valeurs de notre
             communauté.
           </p>
           <div className="bg-white rounded-2xl p-6 max-w-xl mx-auto">

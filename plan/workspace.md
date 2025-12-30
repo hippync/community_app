@@ -1,4 +1,4 @@
-# Covalto — (workspace)
+# Collaboro — (workspace)
 
 > plan “dossiers + fichiers” basé sur ton blueprint.  
 > tu peux importer ce `.md` dans notion ou le découper en pages ensuite.
@@ -7,7 +7,7 @@
 
 ## contexte projet (hypothèses)
 
-- **nom du projet :** Covalto  
+- **nom du projet :** Collaboro  
 - **one-liner :** plateforme québécoise qui transforme l’entraide (bénévolat + petits services) en **récompenses locales** + **réputation humaine**.  
 - **pour qui (persona) :**
   1) étudiant/jeune pro qui veut s’impliquer + bâtir un “cv social”  
@@ -68,7 +68,7 @@ ticket:
 ---
 
 ## 00-control-tower/definition-of-done.md
-**outcome**: standard unique de “terminé” pour Covalto.
+**outcome**: standard unique de “terminé” pour Collaboro.
 
 **inputs**
 - deliverable_type: (figma | spec | code | landing | post | partnership)
