@@ -373,6 +373,64 @@ const SERVICE_POINTS: ServicePoint[] = [
   },
 ];
 
+const USER_PROFILE: UserProfile = {
+  firstName: "Jean",
+  lastInitial: "P",
+  level: "Apprenti",
+  levelProgressPercent: 35,
+  missionsCompleted: 5,
+  trustScore: 75,
+  testimonialsCount: 4,
+  domains: ["Alimentation", "Jeunesse", "Jardinage"],
+  testimonials: [
+    {
+      id: "t1",
+      orgName: "Centre d'entraide Rosemont",
+      orgType: "nonprofit",
+      verified: true,
+      supervisorName: "Marie L.",
+      quote: "Jean a montré une grande fiabilité et beaucoup d'énergie. On va l'appeler pour les prochaines sessions!",
+      date: "15 janvier 2025",
+      missionTitle: "Préparation de paniers alimentaires",
+      approxSeconds: 15,
+    },
+    {
+      id: "t2",
+      orgName: "Maisonnette Jeunesse Villeray",
+      orgType: "nonprofit",
+      verified: true,
+      supervisorName: "Thomas D.",
+      quote: "Très engagé auprès des jeunes. Reviens quand tu veux!",
+      date: "8 janvier 2025",
+      missionTitle: "Aide aux devoirs",
+      approxSeconds: 20,
+    },
+  ],
+  history: [
+    {
+      id: "h1",
+      orgName: "Centre d'entraide Rosemont",
+      missionTitle: "Préparation de paniers alimentaires",
+      date: "15 janvier 2025",
+      categories: ["Alimentation", "Logistique"],
+    },
+    {
+      id: "h2",
+      orgName: "Maisonnette Jeunesse Villeray",
+      missionTitle: "Aide aux devoirs",
+      date: "8 janvier 2025",
+      categories: ["Jeunesse", "Éducation"],
+    },
+    {
+      id: "h3",
+      orgName: "Jardin collectif Parc-Extension",
+      missionTitle: "Entretien du jardin",
+      date: "25 décembre 2024",
+      categories: ["Environnement", "Jardinage"],
+    },
+  ],
+};
+
 export default function Discover({ onNavigate }: DiscoverProps) {
   const [search, setSearch] = useState("");
   const [radius, setRadius] = useState<RadiusOption>(3);
