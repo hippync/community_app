@@ -5,10 +5,10 @@ import Fonctionnement from './pages/Fonctionnement';
 import Communaute from './pages/Communaute';
 import Rejoindre from './pages/Rejoindre';
 import Securite from './pages/Securite';
-import Discover from './pages/Discover';
+import Decouvrir from './pages/Decouvrir';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('discover');
+  const [currentPage, setCurrentPage] = useState('decouvrir');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -16,8 +16,8 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'discover':
-        return <Discover onNavigate={setCurrentPage} />;
+      case 'decouvrir':
+        return <Decouvrir onNavigate={setCurrentPage} />;
       case 'accueil':
         return <Accueil onNavigate={setCurrentPage} />;
       case 'fonctionnement':
@@ -29,7 +29,7 @@ function App() {
       case 'rejoindre':
         return <Rejoindre />;
       default:
-        return <Discover onNavigate={setCurrentPage} />;
+        return <Decouvrir onNavigate={setCurrentPage} />;
     }
   };
 

@@ -94,7 +94,7 @@ export default function Accueil({ onNavigate }: AccueilProps) {
               authentique dans des lieux sécuritaires.
             </p>
             <button
-              onClick={() => onNavigate("fonctionnement")}
+              onClick={() => onNavigate("decouvrir")}
               className="inline-flex items-center gap-2 bg-white text-[#1e40af] px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-xl"
             >
               Découvrir Collaboro

@@ -15,7 +15,7 @@ export default function Navigation({
   const navItems = [
     { id: "accueil", label: "Accueil" },
     { id: "fonctionnement", label: "Comment ça fonctionne" },
-    { id: "discover", label: "Découvrir" },
+    { id: "decouvrir", label: "Découvrir" },
     { id: "communaute", label: "Communauté" },
     { id: "securite", label: "Sécurité" },
     { id: "rejoindre", label: "Rejoindre" },
