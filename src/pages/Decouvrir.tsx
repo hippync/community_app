@@ -52,7 +52,7 @@ interface ServicePoint {
   mapPosition: MapPosition;
 }
 
-interface DiscoverProps {
+interface DecouvrirProps {
   onNavigate: (page: string) => void;
 }
 
@@ -389,7 +389,8 @@ const USER_PROFILE: UserProfile = {
       orgType: "nonprofit",
       verified: true,
       supervisorName: "Marie L.",
-      quote: "Jean a montré une grande fiabilité et beaucoup d'énergie. On va l'appeler pour les prochaines sessions!",
+      quote:
+        "Jean a montré une grande fiabilité et beaucoup d'énergie. On va l'appeler pour les prochaines sessions!",
       date: "15 janvier 2025",
       missionTitle: "Préparation de paniers alimentaires",
       approxSeconds: 15,
@@ -431,12 +432,12 @@ const USER_PROFILE: UserProfile = {
   ],
 };
 
-export default function Discover({ onNavigate }: DiscoverProps) {
+export default function Decouvrir({ onNavigate }: DecouvrirProps) {
   const [search, setSearch] = useState("");
   const [radius, setRadius] = useState<RadiusOption>(3);
-  const [typeFilter, setTypeFilter] = useState<"all" | "nonprofit" | "business">(
-    "nonprofit"
-  );
+  const [typeFilter, setTypeFilter] = useState<
+    "all" | "nonprofit" | "business"
+  >("nonprofit");
   const [ageMode, setAgeMode] = useState<AgeMode>("youth");
   const [locationStatus, setLocationStatus] = useState<LocationStatus>("idle");
   const [viewModeMobile, setViewModeMobile] = useState<"list" | "map">("list");
@@ -452,7 +453,10 @@ export default function Discover({ onNavigate }: DiscoverProps) {
 
   const filteredOpportunities = useMemo(() => {
     return OPPORTUNITIES.filter((opportunity) => {
-      if (!EXPERIENCE_TOGGLES.showBusinessTasks && opportunity.type === "business") {
+      if (
+        !EXPERIENCE_TOGGLES.showBusinessTasks &&
+        opportunity.type === "business"
+      ) {
         return false;
       }
 
@@ -517,8 +521,9 @@ export default function Discover({ onNavigate }: DiscoverProps) {
               Découvrir les missions près de chez toi
             </h1>
             <p className="text-gray-600 max-w-2xl">
-              Trouve des <span className="font-semibold">OBNL à aider en priorité</span> et,
-              si tu le souhaites, des
+              Trouve des{" "}
+              <span className="font-semibold">OBNL à aider en priorité</span>{" "}
+              et, si tu le souhaites, des
               <span className="font-semibold">
                 {" "}
                 commerces locaux avec des besoins ponctuels
@@ -568,7 +573,8 @@ export default function Discover({ onNavigate }: DiscoverProps) {
               PROTOTYPE EN CONSTRUCTION
             </span>
             <p className="text-sm text-amber-900">
-              Cette version est un MVP. Les données sont fictives et les fonctionnalités seront améliorées.
+              Cette version est un MVP. Les données sont fictives et les
+              fonctionnalités seront améliorées.
             </p>
           </div>
         </div>
@@ -846,7 +852,10 @@ export default function Discover({ onNavigate }: DiscoverProps) {
 
       {/* Full profile modal */}
       {showProfileModal && (
-        <FullProfileModal profile={USER_PROFILE} onClose={() => setShowProfileModal(false)} />
+        <FullProfileModal
+          profile={USER_PROFILE}
+          onClose={() => setShowProfileModal(false)}
+        />
       )}
     </div>
   );
@@ -972,8 +981,9 @@ function OpportunityList({
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-semibold">
                   {userProfile.missionsCompleted}
                 </span>
-                Tu as déjà réalisé {userProfile.missionsCompleted} missions d'entraide,
-                dont certaines dans ces domaines : {overlappingDomains.join(", ")}
+                Tu as déjà réalisé {userProfile.missionsCompleted} missions
+                d'entraide, dont certaines dans ces domaines :{" "}
+                {overlappingDomains.join(", ")}
               </p>
             )}
 
@@ -1001,7 +1011,9 @@ function OpportunityList({
                   <span className="font-semibold text-gray-800 text-[11px]">
                     {userProfile.firstName} {userProfile.lastInitial}
                   </span>
-                  <span className="text-[10px] text-gray-500">• {userProfile.level}</span>
+                  <span className="text-[10px] text-gray-500">
+                    • {userProfile.level}
+                  </span>
                   <span className="ml-1 inline-flex items-center text-[10px] text-emerald-700 font-semibold">
                     {userProfile.trustScore}% confiance
                   </span>
@@ -1069,7 +1081,10 @@ interface UserProfilePreviewProps {
   onOpenFullProfile: () => void;
 }
 
-function UserProfilePreview({ profile, onOpenFullProfile }: UserProfilePreviewProps) {
+function UserProfilePreview({
+  profile,
+  onOpenFullProfile,
+}: UserProfilePreviewProps) {
   const levelLabel = profile.level;
 
   return (
@@ -1089,12 +1104,16 @@ function UserProfilePreview({ profile, onOpenFullProfile }: UserProfilePreviewPr
               {profile.firstName} {profile.lastInitial}
               <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-gray-900 text-white px-2 py-0.5 text-[11px] font-medium">
                 Niveau : {levelLabel}
-                <span className="text-gray-300">({profile.levelProgressPercent}% → prochain palier)</span>
+                <span className="text-gray-300">
+                  ({profile.levelProgressPercent}% → prochain palier)
+                </span>
               </span>
             </h2>
             <p className="text-sm text-gray-600 mb-3 max-w-xl">
-              Même sans expérience professionnelle, chaque mission terminée construit ton histoire :
-              missions, témoignages, domaines de compétences… pour devenir progressivement une personne de confiance.
+              Même sans expérience professionnelle, chaque mission terminée
+              construit ton histoire : missions, témoignages, domaines de
+              compétences… pour devenir progressivement une personne de
+              confiance.
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3 text-sm">
@@ -1133,12 +1152,16 @@ function UserProfilePreview({ profile, onOpenFullProfile }: UserProfilePreviewPr
 
             <div className="mb-3">
               <div className="flex items-center justify-between mb-1">
-                <p className="text-xs text-gray-500">Progression vers "Trusted Contributor"</p>
+                <p className="text-xs text-gray-500">
+                  Progression vers "Trusted Contributor"
+                </p>
               </div>
               <div className="w-full h-2 rounded-full bg-gray-200 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#1e40af] via-[#60a5fa] to-emerald-400"
-                  style={{ width: `${Math.min(profile.levelProgressPercent, 100)}%` }}
+                  style={{
+                    width: `${Math.min(profile.levelProgressPercent, 100)}%`,
+                  }}
                 />
               </div>
             </div>
@@ -1170,7 +1193,8 @@ function UserProfilePreview({ profile, onOpenFullProfile }: UserProfilePreviewPr
                   "{t.quote}"
                 </p>
                 <p className="text-[10px] text-gray-400 mt-0.5">
-                  {t.missionTitle} • {t.date} • Capsule ~{t.approxSeconds ?? 15}s
+                  {t.missionTitle} • {t.date} • Capsule ~{t.approxSeconds ?? 15}
+                  s
                 </p>
               </div>
             ))}
@@ -1320,7 +1344,8 @@ function DetailDrawer({
                   )}
                 </div>
                 <p className="text-xs text-gray-500">
-                  {opportunity.neighborhood} • À {opportunity.distanceKm.toFixed(1)} km
+                  {opportunity.neighborhood} • À{" "}
+                  {opportunity.distanceKm.toFixed(1)} km
                 </p>
               </div>
               <button
@@ -1340,8 +1365,14 @@ function DetailDrawer({
                     : "bg-sky-50 text-sky-700"
                 }`}
               >
-                {isNonProfit ? <Users className="w-3 h-3" /> : <Building2 className="w-3 h-3" />}
-                {isNonProfit ? "OBNL • Bénévolat" : "Commerce • Coup de main ponctuel"}
+                {isNonProfit ? (
+                  <Users className="w-3 h-3" />
+                ) : (
+                  <Building2 className="w-3 h-3" />
+                )}
+                {isNonProfit
+                  ? "OBNL • Bénévolat"
+                  : "Commerce • Coup de main ponctuel"}
               </span>
               {opportunity.categories.map((cat) => (
                 <span
@@ -1410,10 +1441,13 @@ function DetailDrawer({
                 ) : (
                   <p className="text-xs text-[#1e3a8a]">
                     Pour les échanges solidaires entre adultes (par exemple
-                    donner un manteau, un livre ou un meuble), nous
-                    recommandons fortement de te donner rendez-vous dans un
-                    <span className="font-semibold"> point de service vérifié</span>,
-                    dans un lieu public et en journée. Ce n'est pas une règle
+                    donner un manteau, un livre ou un meuble), nous recommandons
+                    fortement de te donner rendez-vous dans un
+                    <span className="font-semibold">
+                      {" "}
+                      point de service vérifié
+                    </span>
+                    , dans un lieu public et en journée. Ce n'est pas une règle
                     obligatoire, mais une bonne pratique pour la sécurité de
                     tout le monde.
                   </p>
@@ -1494,10 +1528,7 @@ interface ContactModalProps {
 function ContactModal({ opportunity, ageMode, onClose }: ContactModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-black/40"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div className="relative z-10 max-w-lg w-full mx-4">
         <Card className="bg-white shadow-2xl">
           <div className="flex items-start justify-between mb-3">
@@ -1592,8 +1623,9 @@ function FullProfileModal({ profile, onClose }: FullProfileModalProps) {
                 {profile.firstName} {profile.lastInitial}
               </h2>
               <p className="text-sm text-gray-600">
-                Parcours d'entraide basé sur des missions réelles, des capsules de témoignages
-                et des domaines de compétences qui se construisent au fil du temps.
+                Parcours d'entraide basé sur des missions réelles, des capsules
+                de témoignages et des domaines de compétences qui se
+                construisent au fil du temps.
               </p>
             </div>
             <button
@@ -1608,19 +1640,24 @@ function FullProfileModal({ profile, onClose }: FullProfileModalProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div className="md:col-span-2 space-y-4">
               <div>
-                <p className="text-xs font-semibold text-gray-500 mb-1">Niveau actuel</p>
+                <p className="text-xs font-semibold text-gray-500 mb-1">
+                  Niveau actuel
+                </p>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-flex items-center gap-1 rounded-full bg-gray-900 text-white px-3 py-1 text-xs font-semibold">
                     {profile.level}
                   </span>
                   <span className="text-xs text-gray-500">
-                    Progression vers le prochain palier : {profile.levelProgressPercent}%
+                    Progression vers le prochain palier :{" "}
+                    {profile.levelProgressPercent}%
                   </span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-gray-200 overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[#1e40af] via-[#60a5fa] to-emerald-400"
-                    style={{ width: `${Math.min(profile.levelProgressPercent, 100)}%` }}
+                    style={{
+                      width: `${Math.min(profile.levelProgressPercent, 100)}%`,
+                    }}
                   />
                 </div>
               </div>
@@ -1653,8 +1690,9 @@ function FullProfileModal({ profile, onClose }: FullProfileModalProps) {
                   CV dynamique (prototype)
                 </p>
                 <p className="mb-2">
-                  Chaque mission validée et chaque capsule de témoignage viennent enrichir un CV humain,
-                  vérifiable et compréhensible par de futurs employeurs.
+                  Chaque mission validée et chaque capsule de témoignage
+                  viennent enrichir un CV humain, vérifiable et compréhensible
+                  par de futurs employeurs.
                 </p>
                 <button
                   type="button"
@@ -1726,11 +1764,10 @@ function FullProfileModal({ profile, onClose }: FullProfileModalProps) {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-700 mb-1.5">
-                    "{t.quote}"
-                  </p>
+                  <p className="text-xs text-gray-700 mb-1.5">"{t.quote}"</p>
                   <p className="text-[10px] text-gray-500">
-                    Capsule vidéo ou audio courte (~{t.approxSeconds ?? 15}s) enregistrée par {t.supervisorName}.
+                    Capsule vidéo ou audio courte (~{t.approxSeconds ?? 15}s)
+                    enregistrée par {t.supervisorName}.
                   </p>
                 </div>
               ))}
@@ -1750,10 +1787,7 @@ interface ReportModalProps {
 function ReportModal({ opportunity, onClose }: ReportModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-black/40"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div className="relative z-10 max-w-md w-full mx-4">
         <Card className="bg-white shadow-2xl">
           <div className="flex items-start justify-between mb-3">
