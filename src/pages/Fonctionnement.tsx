@@ -1,34 +1,41 @@
 import { UserPlus, HandHeart, TrendingUp, ArrowRight } from "lucide-react";
 import { Card } from "../components/Card";
+import { useI18n } from "../i18n/i18n";
 
 interface FonctionnementProps {
   onNavigate: (page: string) => void;
 }
 
 export default function Fonctionnement({ onNavigate }: FonctionnementProps) {
+  const { lang } = useI18n();
+  const isFr = lang === "fr";
+
   const steps = [
     {
       number: "01",
       icon: UserPlus,
-      title: "Inscrivez-vous selon votre rôle",
-      description:
-        "Que vous soyez bénévole, OBNL ou commerce local, créez votre profil et rejoignez l'écosystème Collaboro.",
+      title: isFr ? "Inscrivez-vous selon votre rôle" : "Sign up according to your role",
+      description: isFr
+        ? "Que vous soyez bénévole, OBNL ou commerce local, créez votre profil et rejoignez l'écosystème Collaboro."
+        : "Whether you’re a volunteer, nonprofit or local business, create your profile and join the Collaboro ecosystem.",
       color: "from-[#1e40af] to-[#60a5fa]",
     },
     {
       number: "02",
       icon: HandHeart,
-      title: "Donnez du temps, gagnez des points",
-      description:
-        "Bénévoles : participez à des missions vérifiées. OBNL : publiez vos besoins. Commerces : offrez des récompenses.",
+      title: isFr ? "Donnez du temps, gagnez des points" : "Give your time, earn points",
+      description: isFr
+        ? "Bénévoles : participez à des missions vérifiées. OBNL : publiez vos besoins. Commerces : offrez des récompenses."
+        : "Volunteers: join verified missions. Nonprofits: publish your needs. Businesses: offer rewards.",
       color: "from-[#60a5fa] to-[#34d399]",
     },
     {
       number: "03",
       icon: TrendingUp,
-      title: "Bâtissez votre réputation locale",
-      description:
-        "Échangez vos points contre des avantages locaux et construisez une réputation humaine basée sur l'entraide authentique.",
+      title: isFr ? "Bâtissez votre réputation locale" : "Build your local reputation",
+      description: isFr
+        ? "Échangez vos points contre des avantages locaux et construisez une réputation humaine basée sur l'entraide authentique."
+        : "Redeem your points for local perks and build a human reputation based on genuine mutual aid.",
       color: "from-[#34d399] to-[#10b981]",
     },
   ];
@@ -38,11 +45,12 @@ export default function Fonctionnement({ onNavigate }: FonctionnementProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Comment ça fonctionne
+            {isFr ? "Comment ça fonctionne" : "How it works"}
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            Le système Collaboro transforme votre temps en récompenses locales.
-            Voici comment bénévoles, OBNL et commerces collaborent ensemble.
+            {isFr
+              ? "Le système Collaboro transforme votre temps en récompenses locales. Voici comment bénévoles, OBNL et commerces collaborent ensemble."
+              : "The Collaboro system turns your time into local rewards. Here’s how volunteers, nonprofits and businesses work together."}
           </p>
         </div>
 
@@ -95,24 +103,25 @@ export default function Fonctionnement({ onNavigate }: FonctionnementProps) {
 
         <div className="mt-16 sm:mt-20 bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Prêt à commencer ?
+            {isFr ? "Prêt à commencer ?" : "Ready to get started?"}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-            Rejoignez dès maintenant notre communauté en manifestant votre
-            intérêt. Chaque nouvelle personne nous rapproche de notre vision
-            collective.
+            {isFr
+              ? "Rejoignez dès maintenant notre communauté en manifestant votre intérêt. Chaque nouvelle personne nous rapproche de notre vision collective."
+              : "Join our community by expressing your interest now. Every new person brings us closer to our shared vision."}
           </p>
           <button
             onClick={() => onNavigate("rejoindre")}
             className="inline-flex items-center gap-2 bg-[#1e40af] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-[#1e3a8a] transition-all hover:scale-105 shadow-lg"
           >
-            Manifester mon intérêt
+            {isFr ? "Manifester mon intérêt" : "Express my interest"}
             <ArrowRight className="w-5 h-5" />
           </button>
           <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-600 px-4">
-            <span className="font-semibold">Note :</span> Collaboro est
-            actuellement en phase de prototype. Votre participation nous aide à
-            construire cette initiative ensemble.
+            <span className="font-semibold">{isFr ? "Note :" : "Note:"}</span>{" "}
+            {isFr
+              ? "Collaboro est actuellement en phase de prototype. Votre participation nous aide à construire cette initiative ensemble."
+              : "Collaboro is currently in a prototype phase. Your participation helps us build this initiative together."}
           </p>
         </div>
       </div>

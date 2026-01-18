@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useI18n } from "../i18n/i18n";
 
 interface NavigationProps {
   currentPage: string;
@@ -11,14 +12,15 @@ export default function Navigation({
   onNavigate,
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { lang, setLang, t } = useI18n();
 
   const navItems = [
-    { id: "accueil", label: "Accueil" },
-    { id: "fonctionnement", label: "Comment ça fonctionne" },
-    { id: "decouvrir", label: "Découvrir" },
-    { id: "communaute", label: "Communauté" },
-    { id: "securite", label: "Sécurité" },
-    { id: "rejoindre", label: "Rejoindre" },
+    { id: "accueil", labelKey: "nav.accueil" },
+    { id: "fonctionnement", labelKey: "nav.fonctionnement" },
+    { id: "decouvrir", labelKey: "nav.decouvrir" },
+    { id: "communaute", labelKey: "nav.communaute" },
+    { id: "securite", labelKey: "nav.securite" },
+    { id: "rejoindre", labelKey: "nav.rejoindre" },
   ];
 
   const handleNavClick = (page: string) => {
@@ -34,10 +36,10 @@ export default function Navigation({
             onClick={() => handleNavClick("accueil")}
             className="text-3xl font-bold bg-gradient-to-r from-[#1e40af] to-[#60a5fa] bg-clip-text text-transparent hover:scale-105 transition-transform"
           >
-            Collaboro
+            {t("nav.brand")}
           </button>
 
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -48,9 +50,31 @@ export default function Navigation({
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
-                {item.label}
+                {t(item.labelKey)}
               </button>
             ))}
+
+            {/* Language toggle */}
+            <div className="flex items-center gap-1 rounded-full bg-gray-100 p-1 text-xs font-semibold">
+              <button
+                type="button"
+                onClick={() => setLang("fr")}
+                className={`px-3 py-1 rounded-full ${
+                  lang === "fr" ? "bg-white text-[#1e40af] shadow-sm" : "text-gray-600"
+                }`}
+              >
+                FR
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`px-3 py-1 rounded-full ${
+                  lang === "en" ? "bg-white text-[#1e40af] shadow-sm" : "text-gray-600"
+                }`}
+              >
+                EN
+              </button>
+            </div>
           </div>
 
           <button
@@ -68,7 +92,31 @@ export default function Navigation({
 
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md">
-          <div className="px-4 py-6 space-y-2">
+          <div className="px-4 py-4 space-y-2">
+            {/* Language toggle (mobile) */}
+            <div className="flex justify-end mb-2">
+              <div className="flex items-center gap-1 rounded-full bg-gray-100 p-1 text-xs font-semibold">
+                <button
+                  type="button"
+                  onClick={() => setLang("fr")}
+                  className={`px-3 py-1 rounded-full ${
+                    lang === "fr" ? "bg-white text-[#1e40af] shadow-sm" : "text-gray-600"
+                  }`}
+                >
+                  FR
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLang("en")}
+                  className={`px-3 py-1 rounded-full ${
+                    lang === "en" ? "bg-white text-[#1e40af] shadow-sm" : "text-gray-600"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -79,7 +127,7 @@ export default function Navigation({
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
-                {item.label}
+                {t(item.labelKey)}
               </button>
             ))}
           </div>
