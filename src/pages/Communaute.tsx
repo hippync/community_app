@@ -1,33 +1,40 @@
 import { Clock, MapPin, Heart, Users, ArrowRight } from "lucide-react";
 import { Card } from "../components/Card";
+import { useI18n } from "../i18n/i18n";
 
 interface CommunauteProps {
   onNavigate: (page: string) => void;
 }
 
 export default function Communaute({ onNavigate }: CommunauteProps) {
+  const { lang } = useI18n();
+  const isFr = lang === "fr";
+
   const testimonials = [
     {
       name: "Sophie",
-      role: "Membre de la communauté",
-      quote:
-        "L'entraide crée des liens authentiques que j'avais perdus dans notre société moderne. J'ai hâte de voir Collaboro prendre vie.",
+      role: isFr ? "Membre de la communauté" : "Community member",
+      quote: isFr
+        ? "L'entraide crée des liens authentiques que j'avais perdus dans notre société moderne. J'ai hâte de voir Collaboro prendre vie."
+        : "Mutual aid creates authentic bonds I had lost in our modern society. I can’t wait to see Collaboro come to life.",
       image:
         "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
     {
       name: "Marc",
-      role: "Contributeur actif",
-      quote:
-        "Donner de son temps pour aider les autres donne un sens profond à mes journées. Ce projet répond à un vrai besoin.",
+      role: isFr ? "Contributeur actif" : "Active contributor",
+      quote: isFr
+        ? "Donner de son temps pour aider les autres donne un sens profond à mes journées. Ce projet répond à un vrai besoin."
+        : "Giving my time to help others gives deep meaning to my days. This project answers a real need.",
       image:
         "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
     {
       name: "Amina",
-      role: "Ambassadrice",
-      quote:
-        "Ensemble, nous pouvons vraiment changer les choses. Collaboro incarne l'espoir d'une communauté plus solidaire.",
+      role: isFr ? "Ambassadrice" : "Ambassador",
+      quote: isFr
+        ? "Ensemble, nous pouvons vraiment changer les choses. Collaboro incarne l'espoir d'une communauté plus solidaire."
+        : "Together, we can really change things. Collaboro embodies the hope of a more caring community.",
       image:
         "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
@@ -70,18 +77,19 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Notre communauté
+            {isFr ? "Notre communauté" : "Our community"}
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-6">
-            Découvrez l'écosystème tripartite qui unit bénévoles, OBNL et
-            commerces locaux autour d'un système de récompenses basé sur
-            l'entraide.
+            {isFr
+              ? "Découvrez l'écosystème tripartite qui unit bénévoles, OBNL et commerces locaux autour d'un système de récompenses basé sur l'entraide."
+              : "Discover the three-way ecosystem that connects volunteers, nonprofits and local businesses around a reward system based on mutual aid."}
           </p>
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
-              <span className="font-bold">Note importante :</span> Les contenus
-              suivants sont illustratifs et représentent notre vision future.
-              Collaboro est actuellement en phase de prototype.
+              <span className="font-bold">{isFr ? "Note importante :" : "Important note:"}</span>{" "}
+              {isFr
+                ? "Les contenus suivants sont illustratifs et représentent notre vision future. Collaboro est actuellement en phase de prototype."
+                : "The following content is illustrative and represents our future vision. Collaboro is currently in a prototype phase."}
             </p>
           </div>
         </div>
@@ -89,7 +97,7 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
         {/* Bloc 1: Témoignages illustratifs */}
         <div className="mb-20">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            Témoignages illustratifs
+            {isFr ? "Témoignages illustratifs" : "Illustrative testimonials"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -118,11 +126,12 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
         {/* Bloc 2: Impact projeté */}
         <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-3xl p-8 sm:p-12 mb-20">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            Impact projeté
+            {isFr ? "Impact projeté" : "Projected impact"}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Nos objectifs pour le pilote montréalais : 5 OBNL, 10 commerces et
-            50 bénévoles actifs.
+            {isFr
+              ? "Nos objectifs pour le pilote montréalais : 5 OBNL, 10 commerces et 50 bénévoles actifs."
+              : "Our goals for the Montréal pilot: 5 nonprofits, 10 businesses and 50 active volunteers."}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {projectedImpact.map((item, index) => {
@@ -151,38 +160,39 @@ export default function Communaute({ onNavigate }: CommunauteProps) {
             })}
           </div>
           <p className="text-center text-sm text-gray-600 mt-8 italic">
-            Ces chiffres représentent nos objectifs pour le lancement du pilote
-            à Montréal en 2026.
+            {isFr
+              ? "Ces chiffres représentent nos objectifs pour le lancement du pilote à Montréal en 2026."
+              : "These numbers represent our goals for the pilot launch in Montréal in 2026."}
           </p>
         </div>
 
         {/* Bloc 3: Message collectif fort */}
         <div className="bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] text-white rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            La force du collectif
+            {isFr ? "La force du collectif" : "The strength of the collective"}
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-lg leading-relaxed mb-8">
             <p>
-              Collaboro repose sur une conviction profonde : ensemble, nous
-              sommes plus forts. Chaque geste compte, chaque contribution fait
-              la différence.
+              {isFr
+                ? "Collaboro repose sur une conviction profonde : ensemble, nous sommes plus forts. Chaque geste compte, chaque contribution fait la différence."
+                : "Collaboro is built on a deep belief: together, we are stronger. Every gesture matters, every contribution makes a difference."}
             </p>
             <p>
-              Notre communauté sera construite sur des valeurs de solidarité, de
-              respect et d'engagement authentique. Nous croyons en un modèle
-              d'entraide où chacun apporte ce qu'il peut, selon ses moyens et
-              ses capacités.
+              {isFr
+                ? "Notre communauté sera construite sur des valeurs de solidarité, de respect et d'engagement authentique. Nous croyons en un modèle d'entraide où chacun apporte ce qu'il peut, selon ses moyens et ses capacités."
+                : "Our community is built on solidarity, respect and authentic commitment. We believe in a model of mutual aid where everyone brings what they can, according to their means and capacities."}
             </p>
             <p className="font-semibold text-blue-100">
-              Ce projet n'existe que grâce aux personnes qui croient en cette
-              vision et qui souhaitent faire partie de ce mouvement collectif.
+              {isFr
+                ? "Ce projet n'existe que grâce aux personnes qui croient en cette vision et qui souhaitent faire partie de ce mouvement collectif."
+                : "This project exists only thanks to people who believe in this vision and want to be part of this collective movement."}
             </p>
           </div>
           <button
             onClick={() => onNavigate("rejoindre")}
             className="inline-flex items-center gap-2 bg-white text-[#1e40af] px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-xl"
           >
-            Rejoindre le mouvement
+            {isFr ? "Rejoindre le mouvement" : "Join the movement"}
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

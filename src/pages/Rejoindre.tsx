@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Send, Heart, CheckCircle, AlertCircle } from "lucide-react";
 import { Card } from "../components/Card";
 import { manifestationsService } from "../services/manifestations";
+import { useI18n } from "../i18n/i18n";
 
 export default function Rejoindre() {
+  const { lang } = useI18n();
+  const isFr = lang === "fr";
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
@@ -27,24 +30,31 @@ export default function Rejoindre() {
 
     // Validation du prénom
     if (formData.firstName.trim().length < 2) {
-      newErrors.firstName = "Le prénom doit contenir au moins 2 caractères";
+      newErrors.firstName = isFr
+        ? "Le prénom doit contenir au moins 2 caractères"
+        : "First name must be at least 2 characters";
     }
 
     // Validation de l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Veuillez entrer une adresse courriel valide";
+      newErrors.email = isFr
+        ? "Veuillez entrer une adresse courriel valide"
+        : "Please enter a valid email address";
     }
 
     // Validation du rôle
     if (!formData.role) {
-      newErrors.role = "Veuillez sélectionner votre rôle";
+      newErrors.role = isFr
+        ? "Veuillez sélectionner votre rôle"
+        : "Please select your role";
     }
 
     // Validation de la motivation
     if (formData.motivation.trim().length < 20) {
-      newErrors.motivation =
-        "Veuillez partager au moins 20 caractères sur votre motivation";
+      newErrors.motivation = isFr
+        ? "Veuillez partager au moins 20 caractères sur votre motivation"
+        : "Please share at least 20 characters about your motivation";
     }
 
     setErrors(newErrors);
@@ -89,8 +99,9 @@ export default function Rejoindre() {
       // Gérer l'erreur de doublon d'email
       if (error.message === "EMAIL_DUPLICATE") {
         setErrors({
-          email:
-            "Cette adresse courriel est déjà enregistrée. Merci de votre intérêt !",
+          email: isFr
+            ? "Cette adresse courriel est déjà enregistrée. Merci de votre intérêt !"
+            : "This email address is already registered. Thank you for your interest!",
         });
       } else {
         // Autres erreurs
@@ -102,7 +113,9 @@ export default function Rejoindre() {
           hint: error.hint,
         });
         setErrors({
-          general: "Une erreur est survenue. Veuillez réessayer plus tard.",
+          general: isFr
+            ? "Une erreur est survenue. Veuillez réessayer plus tard."
+            : "Something went wrong. Please try again later.",
         });
       }
     } finally {
@@ -139,16 +152,18 @@ export default function Rejoindre() {
             <CheckCircle className="w-14 h-14 text-white" />
           </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Merci pour votre intérêt !
+            {isFr ? "Merci pour votre intérêt !" : "Thank you for your interest!"}
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
-            Votre manifestation d'intérêt a été enregistrée avec succès. Nous
-            vous contacterons lors des prochaines étapes du développement de
-            Collaboro.
+            {isFr
+              ? "Votre manifestation d'intérêt a été enregistrée avec succès. Nous vous contacterons lors des prochaines étapes du développement de Collaboro."
+              : "Your expression of interest has been recorded successfully. We’ll contact you as Collaboro moves to the next steps."}
           </p>
           <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-6">
             <p className="text-gray-700 font-semibold text-lg">
-              Ensemble, nous construisons quelque chose de beau. 💙
+              {isFr
+                ? "Ensemble, nous construisons quelque chose de beau. 💙"
+                : "Together, we’re building something beautiful. 💙"}
             </p>
           </div>
         </Card>
@@ -162,18 +177,21 @@ export default function Rejoindre() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Rejoindre Collaboro
+            {isFr ? "Rejoindre Collaboro" : "Join Collaboro"}
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
-            Que vous soyez citoyen engagé, organisme ou commerce local,
-            rejoignez notre mouvement pour transformer l'entraide en impact
-            concret.
+            {isFr
+              ? "Que vous soyez citoyen engagé, organisme ou commerce local, rejoignez notre mouvement pour transformer l'entraide en impact concret."
+              : "Whether you’re an engaged citizen, nonprofit or local business, join our movement to turn mutual aid into concrete impact."}
           </p>
           <div className="inline-block bg-blue-50 border border-blue-200 rounded-2xl px-6 py-3">
             <p className="text-sm text-[#1e40af] font-medium">
-              <span className="font-bold">Phase pilote à Montréal :</span>{" "}
-              Collaboro est en développement. Nous recherchons 5 OBNL, 10
-              commerces et 50 bénévoles pour lancer le projet en 2026.
+              <span className="font-bold">
+                {isFr ? "Phase pilote à Montréal :" : "Montréal pilot phase:"}
+              </span>{" "}
+              {isFr
+                ? "Collaboro est en développement. Nous recherchons 5 OBNL, 10 commerces et 50 bénévoles pour lancer le projet en 2026."
+                : "Collaboro is in development. We’re looking for 5 nonprofits, 10 businesses and 50 volunteers to launch the pilot in 2026."}
             </p>
           </div>
         </div>
@@ -196,7 +214,7 @@ export default function Rejoindre() {
                 htmlFor="firstName"
                 className="block text-sm font-semibold text-gray-900 mb-3"
               >
-                Prénom
+                {isFr ? "Prénom" : "First name"}
               </label>
               <input
                 type="text"
@@ -212,7 +230,7 @@ export default function Rejoindre() {
                 } rounded-2xl focus:ring-4 ${
                   errors.firstName ? "focus:ring-red-50" : "focus:ring-blue-50"
                 } outline-none transition-all text-gray-900 placeholder-gray-400`}
-                placeholder="Votre prénom"
+                placeholder={isFr ? "Votre prénom" : "Your first name"}
               />
               {errors.firstName && (
                 <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
@@ -227,7 +245,7 @@ export default function Rejoindre() {
                 htmlFor="email"
                 className="block text-sm font-semibold text-gray-900 mb-3"
               >
-                Courriel
+                {isFr ? "Courriel" : "Email"}
               </label>
               <input
                 type="email"
@@ -243,7 +261,7 @@ export default function Rejoindre() {
                 } rounded-2xl focus:ring-4 ${
                   errors.email ? "focus:ring-red-50" : "focus:ring-blue-50"
                 } outline-none transition-all text-gray-900 placeholder-gray-400`}
-                placeholder="votre@courriel.com"
+                placeholder={isFr ? "votre@courriel.com" : "your@email.com"}
               />
               {errors.email && (
                 <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
@@ -258,7 +276,7 @@ export default function Rejoindre() {
                 htmlFor="role"
                 className="block text-sm font-semibold text-gray-900 mb-3"
               >
-                Je suis...
+                {isFr ? "Je suis..." : "I am..."}
               </label>
               <select
                 id="role"
@@ -274,14 +292,24 @@ export default function Rejoindre() {
                   errors.role ? "focus:ring-red-50" : "focus:ring-blue-50"
                 } outline-none transition-all text-gray-900 bg-white`}
               >
-                <option value="">Sélectionnez votre rôle</option>
+                <option value="">
+                  {isFr ? "Sélectionnez votre rôle" : "Select your role"}
+                </option>
                 <option value="volunteer">
-                  Citoyen engagé (étudiant, travailleur, parent, retraité)
+                  {isFr
+                    ? "Citoyen engagé (étudiant, travailleur, parent, retraité)"
+                    : "Engaged citizen (student, worker, parent, retiree)"}
                 </option>
                 <option value="nonprofit">
-                  OBNL / Organisme communautaire
+                  {isFr
+                    ? "OBNL / Organisme communautaire"
+                    : "Nonprofit / community organization"}
                 </option>
-                <option value="business">Commerce local / Entreprise</option>
+                <option value="business">
+                  {isFr
+                    ? "Commerce local / Entreprise"
+                    : "Local business / Company"}
+                </option>
               </select>
               {errors.role && (
                 <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
@@ -296,8 +324,10 @@ export default function Rejoindre() {
                 htmlFor="quartier"
                 className="block text-sm font-semibold text-gray-900 mb-3"
               >
-                Quartier (Montréal){" "}
-                <span className="text-gray-400 text-xs">optionnel</span>
+                {isFr ? "Quartier (Montréal)" : "Neighbourhood (Montréal)"}{" "}
+                <span className="text-gray-400 text-xs">
+                  {isFr ? "optionnel" : "optional"}
+                </span>
               </label>
               <input
                 type="text"
@@ -306,7 +336,11 @@ export default function Rejoindre() {
                 value={formData.quartier}
                 onChange={handleChange}
                 className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#1e40af] focus:ring-4 focus:ring-blue-50 outline-none transition-all text-gray-900 placeholder-gray-400"
-                placeholder="Ex: Plateau, Rosemont, Villeray, Hochelaga..."
+                placeholder={
+                  isFr
+                    ? "Ex: Plateau, Rosemont, Villeray, Hochelaga..."
+                    : "e.g. Plateau, Rosemont, Villeray, Hochelaga..."
+                }
               />
             </div>
 
@@ -315,7 +349,9 @@ export default function Rejoindre() {
                 htmlFor="motivation"
                 className="block text-sm font-semibold text-gray-900 mb-3"
               >
-                Pourquoi souhaitez-vous rejoindre une initiative communautaire ?
+                {isFr
+                  ? "Pourquoi souhaitez-vous rejoindre une initiative communautaire ?"
+                  : "Why do you want to join a community initiative?"}
               </label>
               <textarea
                 id="motivation"
@@ -331,7 +367,11 @@ export default function Rejoindre() {
                 } rounded-2xl focus:ring-4 ${
                   errors.motivation ? "focus:ring-red-50" : "focus:ring-blue-50"
                 } outline-none transition-all text-gray-900 placeholder-gray-400 resize-none`}
-                placeholder="Partagez ce qui vous motive à participer à un projet d'entraide collective..."
+                placeholder={
+                  isFr
+                    ? "Partagez ce qui vous motive à participer à un projet d'entraide collective..."
+                    : "Share what motivates you to take part in a collective mutual‑aid project..."
+                }
               />
               {errors.motivation && (
                 <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
@@ -349,12 +389,12 @@ export default function Rejoindre() {
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Envoi en cours...
+                  {isFr ? "Envoi en cours..." : "Sending..."}
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  Manifester mon intérêt
+                  {isFr ? "Manifester mon intérêt" : "Express my interest"}
                 </>
               )}
             </button>
@@ -365,17 +405,18 @@ export default function Rejoindre() {
         <Card className="bg-gradient-to-br from-green-50 to-blue-50 text-center">
           <Heart className="w-14 h-14 text-[#34d399] mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-            Ensemble, nous créons du sens
+            {isFr ? "Ensemble, nous créons du sens" : "Together, we create meaning"}
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-6">
-            Chaque personne qui manifeste son intérêt nous aide à construire
-            Collaboro. Votre participation dès maintenant contribue à façonner
-            une plateforme qui reflète les besoins et les valeurs de notre
-            communauté.
+            {isFr
+              ? "Chaque personne qui manifeste son intérêt nous aide à construire Collaboro. Votre participation dès maintenant contribue à façonner une plateforme qui reflète les besoins et les valeurs de notre communauté."
+              : "Every person who expresses interest helps us build Collaboro. Your participation now helps shape a platform that reflects our community’s needs and values."}
           </p>
           <div className="bg-white rounded-2xl p-6 max-w-xl mx-auto">
             <p className="text-gray-800 font-semibold">
-              Merci de croire en l'entraide et en l'impact collectif. 🌟
+              {isFr
+                ? "Merci de croire en l'entraide et en l'impact collectif. 🌟"
+                : "Thank you for believing in mutual aid and collective impact. 🌟"}
             </p>
           </div>
         </Card>

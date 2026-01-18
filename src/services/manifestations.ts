@@ -19,6 +19,10 @@ export const manifestationsService = {
    * Inclut validation et rate limiting côté client
    */
   async create(data: ManifestationInteret) {
+    if (!supabase) {
+      throw new Error('Supabase client is not configured');
+    }
+
     // 1. Validation des données
     if (!data.firstName?.trim() || data.firstName.trim().length < 2) {
       throw new Error('Le prénom doit contenir au moins 2 caractères');
@@ -82,6 +86,10 @@ export const manifestationsService = {
    * Vérifier si un email existe déjà
    */
   async checkEmailExists(email: string): Promise<boolean> {
+    if (!supabase) {
+      return false;
+    }
+
     const { data, error } = await supabase
       .from('manifestations_interet')
       .select('email')
@@ -101,6 +109,10 @@ export const manifestationsService = {
    * Requiert une authentification
    */
   async getAll() {
+    if (!supabase) {
+      return [];
+    }
+
     const { data, error } = await supabase
       .from('manifestations_interet')
       .select('*')
@@ -114,6 +126,10 @@ export const manifestationsService = {
    * Obtenir les statistiques (utilise la vue SQL)
    */
   async getStats() {
+    if (!supabase) {
+      return null;
+    }
+
     const { data, error } = await supabase
       .from('manifestations_stats')
       .select('*')
